@@ -389,7 +389,9 @@ call_mfa(Module, Function, Args) ->
                 andalso is_list(Trace) ->
             {error, Error};
         Type:Reason:Trace ->
-            {error, {erlang, Type, Reason, Trace}}
+            {error, {erlang, Type, Reason, Trace}};
+        _ ->
+            {error, call_mfa}
     end.
 
 %%
